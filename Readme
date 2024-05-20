@@ -1,21 +1,26 @@
-Instuctions on how to start a minecraft server
+# README: Instructions on How to Start a Minecraft Server
 
-Steps
+## Steps
 
-1) Go to ec2 and click launch instance
-2) Under name and tags enter Minecraft server
-3) Applications and OS imagees hchose Amazonee Linux 2023 AMI with the 64-bit (Arm) version
-4) Select t4g.small under instance type (if you do not see this you did not select 64-big (Arm))
-5) For a key generation use an existing key or create a key and save the pub key to your desktop we will be needing this to ssh into the ec2 instance to run a bash script in a bit.
-6) Under Network settings edit and select default vpc and no preference for subnet. Also have auto-assign public ip enabled
-7) Unser Firewall select (creeate security group) and name your group name Minecraft Security Group and under deescription again name it Minecraft Seecurity groups
-8) under inbound security group rulees click add security group rule and select Anywhere under Source type and ```0.0.0.0/0``` add ```25565``` as the portrange 
-9) now click launch instance
-10) navagate to the ec2 instance dashbord and on the left click instances this should show you a list of instances
-11) select the checkbox next to mineecraft server and under actions select connect
-12) under connect there should be a tab calleeed ssh client click and copy the Example: at the bottom and connect to your ect instance with the copyed command
-- note you will need to be in the directiory with where you keyfile is located
-13) once connected run the fallowing script ```touch loop.bash``` and ```vim loop.bash```
+1. Go to EC2 and click **Launch Instance**.
+2. Under **Name and Tags**, enter **Minecraft Server**.
+3. In **Applications and OS Images**, choose **Amazon Linux 2023 AMI** with the **64-bit (Arm) version**.
+4. Select **t4g.small** under **Instance Type** (if you do not see this, you did not select **64-bit (Arm)**).
+5. For **Key Pair (login)**, use an existing key or create a new key and save the `.pem` file to your desktop. You will need this to SSH into the EC2 instance to run a bash script later.
+6. Under **Network Settings**, edit and select **Default VPC** and **No preference** for subnet. Ensure **Auto-assign Public IP** is enabled.
+7. Under **Firewall**, select **Create security group**. Name your security group **Minecraft Security Group** and enter **Minecraft Security Group** under description.
+8. Under **Inbound security group rules**, click **Add security group rule** and select **Anywhere** under **Source type**. Add `0.0.0.0/0` as the source and `25565` as the port range.
+9. Click **Launch Instance**.
+10. Navigate to the EC2 instance dashboard and on the left, click **Instances**. This should show you a list of instances.
+11. Select the checkbox next to **Minecraft Server** and under **Actions**, select **Connect**.
+12. Under **Connect**, there should be a tab called **SSH Client**. Click it and copy the example command at the bottom to connect to your EC2 instance using the copied command.
+   - Note: You will need to be in the directory where your key file is located.
+13. Once connected, run the following commands to create a bash script:
+
+```bash
+touch loop.bash
+vim loop.bash
+```
 14) push i on your keyboard and pase the fallowing program into the file ```#!/bin/bash
 
 # *** INSERT SERVER DOWNLOAD URL BELOW ***
