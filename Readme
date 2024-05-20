@@ -17,11 +17,11 @@
    - Note: You will need to be in the directory where your key file is located.
 13. Once connected, run the following commands to create a bash script:
 
-```bash
-touch loop.bash
-vim loop.bash
-```
-14) push i on your keyboard and pase the fallowing program into the file ```#!/bin/bash
+```touch loop.bash```
+```vim loop.bash```
+
+14) push i on your keyboard and pase the fallowing program into the file 
+```#!/bin/bash
 
 # *** INSERT SERVER DOWNLOAD URL BELOW ***
 # Do not add any spaces between your link and the "=", otherwise it won't work. EG: MINECRAFTSERVERURL=https://urlexample
@@ -63,7 +63,8 @@ sudo systemctl daemon-reload
 sudo systemctl enable minecraft.service
 sudo systemctl start minecraft.service
 
-# End script``` push esc and :wq to save and quit
+# End script``` 
+push esc and :wq to save and quit
 15) run the command ```chmod +x loop.bash``` to make file so its excicutable
 16) run the command ```bash loop.bash``` and then wait for the system to run
 17) you should now be able to connect to the server in minecraft 1.20.1 using the ip and port <yourpublicipv4>:25565
