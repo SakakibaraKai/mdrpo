@@ -63,7 +63,9 @@ sudo systemctl daemon-reload
 sudo systemctl enable minecraft.service
 sudo systemctl start minecraft.service
 
-# End script``` 
+# End script
+```
+
 push esc and :wq to save and quit
 15) run the command ```chmod +x loop.bash``` to make file so its excicutable
 16) run the command ```bash loop.bash``` and then wait for the system to run
