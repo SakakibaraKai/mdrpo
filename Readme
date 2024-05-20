@@ -1,0 +1,65 @@
+Instuctions on how to start a minecraft server
+
+Steps
+
+1) Go to ec2 and click launch instance
+2) Under name and tags enter Minecraft server
+3) Applications and OS imagees hchose Amazonee Linux 2023 AMI with the 64-bit (Arm) version
+4) Select t4g.small under instance type (if you do not see this you did not select 64-big (Arm))
+5) For a key generation use an existing key or create a key and save the pub key to your desktop we will be needing this to ssh into the ec2 instance to run a bash script in a bit.
+6) Under Network settings edit and select default vpc and no preference for subnet. Also have auto-assign public ip enabled
+7) Unser Firewall select (creeate security group) and name your group name Minecraft Security Group and under deescription again name it Minecraft Seecurity groups
+8) under inbound security group rulees click add security group rule and select Anywhere under Source type and ```0.0.0.0/0``` add ```25565``` as the portrange 
+9) now click launch instance
+10) navagate to the ec2 instance dashbord and on the left click instances this should show you a list of instances
+11) select the checkbox next to mineecraft server and under actions select connect
+12) under connect there should be a tab calleeed ssh client click and copy the Example: at the bottom and connect to your ect instance with the copyed command
+- note you will need to be in the directiory with where you keyfile is located
+13) once connected run the fallowing script ```touch loop.bash``` and ```vim loop.bash```
+14) push i on your keyboard and pase the fallowing program into the file ```#!/bin/bash
+
+# *** INSERT SERVER DOWNLOAD URL BELOW ***
+# Do not add any spaces between your link and the "=", otherwise it won't work. EG: MINECRAFTSERVERURL=https://urlexample
+
+
+MINECRAFTSERVERURL=https://piston-data.mojang.com/v1/objects/84194a2f286ef7c14ed7ce0090dba59902951553/server.jar
+
+
+# Download Java
+sudo yum install -y java-17-amazon-corretto-headless
+# Install MC Java server in a directory we create
+adduser minecraft
+mkdir /opt/minecraft/
+mkdir /opt/minecraft/server/
+cd /opt/minecraft/server
+
+# Download server jar file from Minecraft official website
+wget $MINECRAFTSERVERURL
+
+# Generate Minecraft server files and create script
+chown -R minecraft:minecraft /opt/minecraft/
+java -Xmx1300M -Xms1300M -jar server.jar nogui
+sleep 40
+sed -i 's/false/true/p' eula.txt
+touch start
+printf '#!/bin/bash\njava -Xmx1300M -Xms1300M -jar server.jar nogui\n' >> start
+chmod +x start
+sleep 1
+touch stop
+printf '#!/bin/bash\nkill -9 $(ps -ef | pgrep -f "java")' >> stop
+chmod +x stop
+sleep 1
+
+# Create SystemD Script to run Minecraft server jar on reboot
+cd /etc/systemd/system/
+touch minecraft.service
+printf '[Unit]\nDescription=Minecraft Server on start up\nWants=network-online.target\n[Service]\nUser=minecraft\nWorkingDirectory=/opt/minecraft/server\nExecStart=/opt/minecraft/server/start\nStandardInput=null\n[Install]\nWantedBy=multi-user.target' >> minecraft.service
+sudo systemctl daemon-reload
+sudo systemctl enable minecraft.service
+sudo systemctl start minecraft.service
+
+# End script``` push esc and :wq to save and quit
+15) run the command ```chmod +x loop.bash``` to make file so its excicutable
+16) run the command ```bash loop.bash``` and then wait for the system to run
+17) you should now be able to connect to the server in minecraft 1.20.1 using the ip and port <yourpublicipv4>:25565
+18) your public ipv4 addreess can be found at the ec2 instances dashbord and clicking the checkbox. At the bottom it should say Public IPv4 address
