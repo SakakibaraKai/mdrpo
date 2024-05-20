@@ -75,7 +75,7 @@ push esc and :wq to save and quit
 18. your public ipv4 addreess can be found at the ec2 instances dashbord and clicking the checkbox. At the bottom it should say **Public IPv4 address**
 
 # Steps to make run on reboot
-1. in ec2 sudo yum install cronie
+1. in ec2 run the command ```sudo yum install cronie```
 2. vim startup.sh
 3. in the startup.sh add the code
 ```
