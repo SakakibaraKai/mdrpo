@@ -86,6 +86,6 @@ sudo ./start
 5. run the command  ```crontab -e```
 6. add code
 ```
-@rebooot ./startups.sh
+@reboot ./startups.sh
 ```
 7. :wq out
