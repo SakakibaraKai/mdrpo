@@ -76,7 +76,7 @@ push esc and :wq to save and quit
 
 # Steps to make run on reboot
 1. in ec2 run the command ```sudo yum install cronie```
-2. vim startup.sh
+2. run the command ```vim startup.sh```
 3. in the startup.sh add the code
 ```
 #!/bin/bash 
