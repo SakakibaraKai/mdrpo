@@ -21,7 +21,8 @@
 ```vim loop.bash```
 
 14) push i on your keyboard and pase the fallowing program into the file 
-```#!/bin/bash
+```
+#!/bin/bash
 
 # *** INSERT SERVER DOWNLOAD URL BELOW ***
 # Do not add any spaces between your link and the "=", otherwise it won't work. EG: MINECRAFTSERVERURL=https://urlexample
