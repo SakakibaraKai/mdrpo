@@ -1,6 +1,6 @@
 # README: Instructions on How to Start a Minecraft Server
 
-## Steps
+## Steps to setup
 
 1. Go to EC2 and click **Launch Instance**.
 2. Under **Name and Tags**, enter **Minecraft Server**.
@@ -73,3 +73,19 @@ push esc and :wq to save and quit
 16. Run the command ```bash loop.bash``` and then wait for the system to run.
 17. You should now be able to connect to the server in Minecraft 1.20.1 using the IP and port ```<your_public_ipv4>:25565```.
 18. your public ipv4 addreess can be found at the ec2 instances dashbord and clicking the checkbox. At the bottom it should say **Public IPv4 address**
+
+# Steps to make run on reboot
+1. in ec2 sudo yum install cronie
+2. vim startup.sh
+3. in the startup.sh add the code
+```
+#!/bin/bash 
+sudo ./start
+```
+4. escape and :wq
+5. run the command  ```crontab -e```
+6. add code
+```
+@rebooot ./startups.sh
+```
+7. :wq out
