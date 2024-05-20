@@ -18,6 +18,7 @@
 13. Once connected, run the following commands to create a bash script:
 
 ```touch loop.bash```
+
 ```vim loop.bash```
 
 14) push i on your keyboard and pase the fallowing program into the file 
