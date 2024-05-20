@@ -65,9 +65,9 @@ sudo systemctl start minecraft.service
 
 # End script
 ```
-
 push esc and :wq to save and quit
-15) run the command ```chmod +x loop.bash``` to make file so its excicutable
-16) run the command ```bash loop.bash``` and then wait for the system to run
-17) you should now be able to connect to the server in minecraft 1.20.1 using the ip and port <yourpublicipv4>:25565
-18) your public ipv4 addreess can be found at the ec2 instances dashbord and clicking the checkbox. At the bottom it should say Public IPv4 address
+
+15. run the command ```chmod +x loop.bash``` to make file so its excicutable
+16. run the command ```bash loop.bash``` and then wait for the system to run
+17. you should now be able to connect to the server in minecraft 1.20.1 using the ip and port <yourpublicipv4>:25565
+18. your public ipv4 addreess can be found at the ec2 instances dashbord and clicking the checkbox. At the bottom it should say Public IPv4 address
