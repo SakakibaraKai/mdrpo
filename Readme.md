@@ -69,5 +69,5 @@ push esc and :wq to save and quit
 
 15. Run the command ```chmod +x loop.bash``` to make the file executable.
 16. Run the command ```bash loop.bash``` and then wait for the system to run.
-17. You should now be able to connect to the server in Minecraft 1.20.1 using the IP and port **<your_public_ipv4>:25565**.
+17. You should now be able to connect to the server in Minecraft 1.20.1 using the IP and port ```<your_public_ipv4>:25565```.
 18. your public ipv4 addreess can be found at the ec2 instances dashbord and clicking the checkbox. At the bottom it should say **Public IPv4 address**
